@@ -18,6 +18,10 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
+        // exception 테스트
+        //double a = 3 / 0;   // exception 설치
+        //int[] a = {1,2,3};
+        //int b = a[4];
         return userDao.selectAllusers();
     }
 
