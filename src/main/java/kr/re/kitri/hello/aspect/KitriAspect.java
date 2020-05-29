@@ -1,5 +1,5 @@
 package kr.re.kitri.hello.aspect;
-
+import kr.re.kitri.hello.annotation.TokenRequired;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -15,6 +15,11 @@ public class KitriAspect {
 
     private static Logger log = LoggerFactory.getLogger(KitriAspect.class);
 
+    @Before("@annotation(tokenRequired)")
+    public void test(TokenRequired tokenRequired) {
+        log.debug("토큰이 적용되어야 합니다......");
+    }
+
     @Before("execution(* kr.re.kitri.hello.service.*Service.*(..))")// point-cut 표현식
     public void logging(JoinPoint joinPoint) {
         String methodName = joinPoint.getSignature().getName();
@@ -23,8 +28,11 @@ public class KitriAspect {
 
     @Around("execution(* kr.re.kitri.hello..dao.*Dao.*(..))")
     public Object measureAdvice(ProceedingJoinPoint pjp) throws Throwable {
+
         long startTime = System.currentTimeMillis();
+
         Object obj = pjp.proceed();  // 해당 함수를 실행 시킨다.
+
         long endTime = System.currentTimeMillis();
 
         long estimateTime = endTime - startTime;
