@@ -14,7 +14,7 @@
         SELECT USER_ID as userId
              , NAME as name
              , AGE as age
-        FROM user
+        FROM users
         ORDER BY USER_ID
     </select>
 
