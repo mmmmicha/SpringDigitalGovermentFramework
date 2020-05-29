@@ -1,6 +1,6 @@
 package kr.re.kitri.hello.service.impl;
 
-import kr.re.kitri.hello.dao.ProductDAO;
+import kr.re.kitri.hello.dao.ProductDao;
 import kr.re.kitri.hello.model.Product;
 import kr.re.kitri.hello.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private ProductDAO productDAO;
+    private ProductDao productDAO;
 
     public String retrieveProducts(){
         // 2. 전체상품을 조회하는 작업 수행... -- Service

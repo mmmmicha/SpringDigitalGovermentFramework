@@ -4,7 +4,7 @@ import kr.re.kitri.hello.model.Product;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ProductDAO {
+public class ProductDao {
 
     public String selectProducts() {
         // DB에 접속... 쿼리 날림..
