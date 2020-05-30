@@ -105,8 +105,15 @@
           
    > ![component 그림](https://user-images.githubusercontent.com/56371387/83330859-fa9f6680-a2cc-11ea-994a-bd1309a99365.PNG)
 
-   
-          
+<h1>2일차</h1>
+
+  > keyword
+  
+      1. DI
+      2. Layered Architecture
+      3. Spring Core
+          - 성능향상
+          - 개발의 편의성
       
       
   
