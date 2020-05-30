@@ -67,7 +67,8 @@
           - Spring의 Base는 Test!
       ※ 참고! 프로그램의 대부분 메모리는 DB메모리이다. 결국 DB 내 처리가 얼마나 빨리 이루어지는가에 달렸다.
       
-   > ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
+      ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
+    
    
    
           
