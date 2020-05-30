@@ -103,7 +103,8 @@
           - pom.xml : maven의 library를 등록하는 곳
           - xml때문에 maven 이 위기를 맞음 => gradle 탄생의 배경(maven과 기능은 거의 일치)
           
-    > 
+   > ![component 그림](https://user-images.githubusercontent.com/56371387/83330859-fa9f6680-a2cc-11ea-994a-bd1309a99365.PNG)
+
    
           
       
