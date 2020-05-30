@@ -27,7 +27,14 @@
           - Spring Project의 Best Practice 에 대한 환경설정들을 처음부터 제공해주고 기호에 따라 수정하는 것.
           - Spring Framework 를 위한 Wrapper 느낌.
           - '공통' 의 역할이 이로인해 상당히 많이 줄게 되었음.
-          ※ Spring, JVM 은 극강의 최적화가 되어있음. 더한 최적화를 위해서 지속적으로 노력하고 있음.
+              ※ Spring, JVM 은 극강의 최적화가 되어있음. 더한 최적화를 위해서 지속적으로 노력하고 있음.
+          - tomcat 내장
+              - 'jar' 로 패키징해야만 톰캣을 내장함.
+              ※ tomcat 과 Jeus 중 tomcat이 성능 압승이다.
+              
+          - 설정을 최대한 줄이고, xml설정 필요없음
+          - Convention over configuration을 따름 => 설정보다 관습!
+              
       
    > Devops
    
@@ -47,6 +54,7 @@
    > BigData 시대
    
       - 데이터를 빠르게 처리하려면 '비동기'(reactive) 시스템을 적용해야함
+          ※ reactive는 구성하는 모든부분들이 reactive여야 비로소 효과가 있다.
       - 위는 Spring 5.0 에서 적극적으로 추진하고 있는 테마
       - 글로벌한 공룡IT기업들(Netflix, Facebook 등...) 이 reactive한 시스템들을 적용중.. 우리나라는 시기상조..
       
@@ -65,7 +73,9 @@
       - ORM도 지원(Hibernate 등..)
       - TDD(Test Driven Development)를 지향
           - Spring의 Base는 Test!
+          
       ※ 참고! 프로그램의 대부분 메모리는 DB메모리이다. 결국 DB 내 처리가 얼마나 빨리 이루어지는가에 달렸다.
+      ※ 참고! Spring에서 JSP는 우선순위가 매우낮다. 다양한 프런트 프레임워크들을 사용한다.(ex. Thymeleaf..)
       
    > ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
    
@@ -76,7 +86,24 @@
       - 기존에 있던 클래스들 일부 제외
       - Java9 이후 버젼들은 Java9과 거의 동일
     
+   > Jet-Brains
    
+      STS, InteliJ 를 만든 회사
+      
+   > Maven
+   
+      - 개발환경, 배포환경을 관리해주는 툴
+      - 이전엔 Ant 를 사용(절차지향)
+      - Maven Central Repository
+          - Java의 거의 모든 library가 저장되어 있음.
+          - maven 은 여기에서 library를 다운로드받아 프로젝트에 적용함.
+      - 프로젝트의 directory를 정해줌
+          - maven 기반의 프로젝트들은 directory구조가 거의 비슷함.
+      - xml 설정파일
+          - pom.xml : maven의 library를 등록하는 곳
+          - xml때문에 maven 이 위기를 맞음 => gradle 탄생의 배경(maven과 기능은 거의 일치)
+          
+    > 
    
           
       
