@@ -194,7 +194,8 @@
           - Http프로토콜의 Caching 기능을 적용
           - "Last-Modified", "e-태그"를 이용
           
-   > 
+   > ![캡처](https://user-images.githubusercontent.com/56371387/83342711-89dc6680-a32d-11ea-91f1-a948a584bb54.PNG)
+
           
               
               
