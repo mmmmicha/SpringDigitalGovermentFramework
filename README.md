@@ -269,6 +269,7 @@
                - dataSource를 알아서 메모리에 올려서 씀
                - @Repository, @Mapper
                      - Dao interface에 사용
+               - <foreach> : where IN 조건에 많이 사용함
          
          ※ 참고! Sequence는 오라클에만 있다!
          
@@ -295,9 +296,17 @@
                - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
                - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
                
-   > 
+   > ![캡처3](https://user-images.githubusercontent.com/56371387/83343367-505b2980-a334-11ea-9b18-ad41bfffc285.PNG)
                
 -----------------------------------------------------------------------------------------------------------------------------
       
-      
+<h1>4일차</h1>
+
+   > Exception
+   
+         - 기존 자바는 Checked Exception concept이라 try ~ catch가 필수
+         - spring, C# 은 unchecked Exception(런타임 Exception) 이라 try ~ catch가 필요없음
+               - Spring의 경우 Entry point에 몰아서 한꺼번에 처리함.
+         - @ControllerAdvice
+         - @ExceptionHandler
   
