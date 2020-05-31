@@ -57,6 +57,13 @@
           ※ reactive는 구성하는 모든부분들이 reactive여야 비로소 효과가 있다.
       - 위는 Spring 5.0 에서 적극적으로 추진하고 있는 테마
       - 글로벌한 공룡IT기업들(Netflix, Facebook 등...) 이 reactive한 시스템들을 적용중.. 우리나라는 시기상조..
+      - 단순히 데이터가 많다보다 대량의 처리를 할 수 있는 능력이 생겼다는 것에 주목!
+      - hadoop은 어플리케이션메모리에서 데이터를 가공
+            - 원래는 DB에서 데이터를 몽땅 처리(이 패러다임을 바꿈)
+            - 즉, DBMS와 어플리케이션 둘 다에서 데이터를 처리
+            - hadoop은 설치만 80%(요새는 이를 cloud가 다 처리함)
+                  ※ 하둡은 계산방식으로 '맵리듀스' 를 사용함
+                  ※ ANSI SQL : ANSI(미국표준협회)에서 지정한 표준 SQL 문법. 모든 DBMS에 호환.
       
    > Spring Framework의 특징
    
@@ -102,7 +109,12 @@
       - xml 설정파일
           - pom.xml : maven의 library를 등록하는 곳
           - xml때문에 maven 이 위기를 맞음 => gradle 탄생의 배경(maven과 기능은 거의 일치)
-          
+      - 라이브러리 설정
+          - <dependencies> : <dependency>들을 품고있는 부모 태그
+          - pom.xml에 dependency를 복붙하고 maven refresh를 하면 설치완료.
+               ※ Mybatis Spring Boot Starter : Mybatis + Mybatis Spring
+               ※ -spring -boot -starter : 관련 library를 전부 설치해주는 spring의 기능.
+        
    > ![component 그림](https://user-images.githubusercontent.com/56371387/83330859-fa9f6680-a2cc-11ea-994a-bd1309a99365.PNG)
 
 -----------------------------------------------------------------------------------------------------------------------------
@@ -204,9 +216,88 @@
 
 <h1>3일차</h1>
 
-    > 뭐지 이거
-              
-              
+   > lombok 라이브러리
+   
+         - Immutable 객체
+               - setter가 없는 bean
+               - '원본을 그대로 보존하겠다' 는 의미
+               - 복사본으로 데이터를 조작하기 때문에 rollback 이 가능하고 오류가 적어지며, 신뢰도가 높아짐
+   
+   > DTO(Data Transfer Object) Design pattern
+   
+         - Serializable 인터페이스 지원(MVC에선 쓸일이 거의 없음)
+         - Immutable 객체
+         
+   > JSON
+         
+         - Jackson 라이브러리(Springboot에 내장)
+         - JSON <-> Java 객체
+         
+   > Generic
+   
+         ※ 참고! List<User> : List of User 로 읽어짐.
+         
+   > 함수형 프로그래밍(≒ 선언적 프로그래밍)
+   
+         - 대표적으로 Java의 람다
+               - .filter : SQL에서 where와 비슷한 역할
+         - 객체프로그래밍은 데이터처리에 불리
+         - 요새 Java엔 함수형 프로그래밍이 부분적으로 도입됨
+               - ex. spark(빅데이터에서 )
+         - .Net(C#)은 이미 2006년도에 함수형 프로그래밍이 적용(역시 MS..)
+               - LINQ라는 기술.
+               - SQL이랑 매우 흡사
+         
+   > JDBC(JDK 1.2에서 부터 도입)
+   
+         - SpringJDBC, Mybatis 등이 JDBC를 wrapping 해서 효율성을 많이 높임.
+         - Connection pool
+               - 커넥션을 여러개 만들어두고 쓰고 반납(release)
+               - 요새 opensource에선 Connection pool 방식을 많이 씀
+         - DataSource
+               - 데이터베이스의 추상객체(Connection, Connection pool이 포함되어 있음)
+               - 즉, Connection은 DataSource로!
+               - hikariCP
+                     - Connection pool 오픈소스
+                     - Spring Boot 2.0 이후 라이브러리 내장(Default)
+               - 설정 방법
+                     - application.properties 에 구체적 내용 설정
+                     - @Configuration : 환경설정 component
+                     - @PropertySource("classpath : /application.properties")
+                     - @Bean(Java 지원) ≒ @Component(Spring 지원)
+         - Mybatis
+               - dataSource를 알아서 메모리에 올려서 씀
+               - @Repository, @Mapper
+                     - Dao interface에 사용
+         
+         ※ 참고! Sequence는 오라클에만 있다!
+         
+   > RESTful Test
+   
+         - JUnit
+               - Java에서 독립된 단위테스트를 지원해주는 프레임워크
+                     - 단위테스트 : 의도된대로 정확히 동작하는지 확인하는 절차
+                     ※ 참고! test폴더는 main폴더를 mirroring해서 만들어짐.
+               - @SpringBootTest
+                     - Test를 위해 Spring Container를 띄워줌
+               - Assertions 를 통해 단위테스트를 여러개 만들어주고 빌드할 때마다 실행되도록 하는것이 바람직.
+               - @Test
+                     - 테스트해볼 각 메소드 위에 표시
+               - MockMVC
+                     - Controller 테스트는 좀 다름. 그래서 postMan을 많이 사용함
+    
+   > Log4J(로그오픈소스) vs LogBack
+         
+         - Log4J(Spring Default)
+         - LogBack Framework(SpringBoot Default)
+         
+         ※ 참고! 요새는 코어가 많아서 '코어 하나당 쓰레드 하나' 로 병렬컴퓨팅을 함.(멀티쓰레딩x)
+               - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
+               - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
+               
+   > 
+               
+-----------------------------------------------------------------------------------------------------------------------------
       
       
   
