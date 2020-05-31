@@ -309,4 +309,12 @@
                - Spring의 경우 Entry point에 몰아서 한꺼번에 처리함.
          - @ControllerAdvice
          - @ExceptionHandler
-  
+         - @RestControllerAdvice  = @ControllerAdvice + @RestController
+         
+   > ![캡처4](https://user-images.githubusercontent.com/56371387/83343436-2ce4ae80-a335-11ea-9919-72b1305ab7bf.PNG)
+
+   > AOP
+   
+         - AspectJ(구버전 AOP) vs Spring AOP
+               - AspectJ : 너무 근본적임(현실적x)
+               - Spring AOP : 현실적임
