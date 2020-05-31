@@ -114,6 +114,90 @@
       3. Spring Core
           - 성능향상
           - 개발의 편의성
+          - '컴포넌트'를 관리하기 위한 Container
+              - 컴포넌트는 POJO이다.(@Autowired)
+              - 종류
+                  - @Component : 아래 컴포넌트들의 상위 어노테이션
+                  - @RestController(@Controller의 하위) : Controller의 return이 자동적으로 JSON으로 변형된다(응답헤더를 json)
+                  - @Service
+                  - @Repository
+                  
+   > Spring5
+   
+      - Spring MVC -> Web Flux
+          - Spring MVC
+              - 매우 구조가 단순
+              - annotation 자주 사용
+          - Web Flux
+              - reactive
+              - annotaion이 매우 적어짐
+              
+   > PHP
+   
+      - 서버사이드 언어
+      - 규모가 큰 프로젝트는 못함. 돈이 안됨
+      - 라라벨 : PHP 기반 MVC를 구현한 프레임워크
+      
+   > Naming rule
+   
+      - 각 '컴포넌트' 는 postfix에 컴포넌트명을 꼭 써서 naming을 해야함.(ex. helloController..)
+      - 각 '컴포넌트'를 호출하는 컴포넌트의 관점에서 naming을 할 것.(ex. Service의 naming은 Controller 관점..)
+      
+   > Value Object(≒ Domain Object, Model Object)
+   
+      - naming은 딱 '명사'만
+      - postfix가 없음
+      
+   > MongoDB(NoSQL)
+   
+      - JSON DB
+      - json을 Query로 파싱할 필요없이 그 자체로 담아버림(insert)
+      
+   > 전자정부프레임워크 Layered 특성
+   
+      - Service 컴포넌트 정도만 interface를 사용함(필수는 아니고 옵션)
+      
+   > RESTful API
+   
+      - method 종류
+          - POST
+          - GET
+          - PUT
+          - DELETE
+          
+      - @PathVariable Type 변수명
+          - 'TYPE' 부분은 타입의 보장이 될 경우 알아서 캐스팅을 해줌
+              (ex. get으로 넘어오는 데이터는 무조건 String인데 int 로 type 을 지정해놓을 경우 알아서 casting함)
+              ※ 주의할점! 그 String이 숫자라는게 보장이 되어야함. 아닐경우 Error
+              
+      - @GetMapping("teams/{teamId}/players/{playId}) <- 예시
+          (ex. 마블코믹스 API, soccer API.. )
+          
+      - PostMan Chrome(테스트 툴)
+          - post로 테스트할 경우 raw, JSON(application/JSON) 으로 설정
+          
+      - @RequestBody
+          - 클라이언트에서 JSON 데이터가 왔을 때 이를 받기위한 어노테이션
+          
+      - SOAP
+          - RESTful Architecture로 세대교체 되기 전 모델
+          - XML에 데이터를 실어서 통신
+          - 브로커방식(UDDI)
+          - 동작, 프로세싱에 집중(RESTful은 데이터처리에 집중)
+              => 수년간 쌓인 데이터는 대체할 수 없다! <- 데이터의 중요성.
+              
+   > Stateless
+   
+      - No session
+          - 인증은 API Key 또는 Token 으로 대체
+      - Cacheable
+          - Http프로토콜의 Caching 기능을 적용
+          - "Last-Modified", "e-태그"를 이용
+          
+   > 
+          
+              
+              
       
       
   
