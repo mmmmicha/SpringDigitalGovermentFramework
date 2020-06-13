@@ -1,4 +1,4 @@
-# Spring-digitalGoverment-study
+# SpringDigitalGovermentStudy
 
 <h1>1일차</h1>
 
