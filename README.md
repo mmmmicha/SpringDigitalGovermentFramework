@@ -83,11 +83,11 @@
 
    - **참고!! 프로그램의 대부분 메모리는 DB메모리이다. 결국 DB 내 처리가 얼마나 빨리 이루어지는가에 달렸다.**
    - **참고!! Spring에서 JSP는 우선순위가 매우낮다. 다양한 프런트 프레임워크들을 사용한다.(ex. Thymeleaf..)**
-  ```
+  
   ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
    
   ![Layered 그림](https://user-images.githubusercontent.com/56371387/83330479-2a00a400-a2ca-11ea-8d00-9e8c52a240ea.PNG)
-  ```
+  
 - Java8 vs Java9
    
    - 기존에 있던 클래스들 일부 제외
