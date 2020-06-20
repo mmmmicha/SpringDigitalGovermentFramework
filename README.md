@@ -84,9 +84,9 @@
    ※ 참고! 프로그램의 대부분 메모리는 DB메모리이다. 결국 DB 내 처리가 얼마나 빨리 이루어지는가에 달렸다.
    ※ 참고! Spring에서 JSP는 우선순위가 매우낮다. 다양한 프런트 프레임워크들을 사용한다.(ex. Thymeleaf..)
       
-- ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
+  ![Spring구조](https://user-images.githubusercontent.com/56371387/83330366-57991d80-a2c9-11ea-90dc-f3aa26bf4bee.PNG)
    
-- ![Layered 그림](https://user-images.githubusercontent.com/56371387/83330479-2a00a400-a2ca-11ea-8d00-9e8c52a240ea.PNG)
+  ![Layered 그림](https://user-images.githubusercontent.com/56371387/83330479-2a00a400-a2ca-11ea-8d00-9e8c52a240ea.PNG)
 
 - Java8 vs Java9
    
@@ -110,12 +110,12 @@
        - pom.xml : maven의 library를 등록하는 곳
        - xml때문에 maven 이 위기를 맞음 => gradle 탄생의 배경(maven과 기능은 거의 일치)
    - 라이브러리 설정
-       - <dependencies> : <dependency>들을 품고있는 부모 태그
+       - `<dependencies>` : `<dependency>`들을 품고있는 부모 태그
        - pom.xml에 dependency를 복붙하고 maven refresh를 하면 설치완료.
             ※ Mybatis Spring Boot Starter : Mybatis + Mybatis Spring
             ※ -spring -boot -starter : 관련 library를 전부 설치해주는 spring의 기능.
 
-- ![component 그림](https://user-images.githubusercontent.com/56371387/83330859-fa9f6680-a2cc-11ea-994a-bd1309a99365.PNG)
+  ![component 그림](https://user-images.githubusercontent.com/56371387/83330859-fa9f6680-a2cc-11ea-994a-bd1309a99365.PNG)
 
 -----------------------------------------------------------------------------------------------------------------------------
 
@@ -146,32 +146,32 @@
            - reactive
            - annotaion이 매우 적어짐
 
-> PHP
+- PHP
 
    - 서버사이드 언어
    - 규모가 큰 프로젝트는 못함. 돈이 안됨
    - 라라벨 : PHP 기반 MVC를 구현한 프레임워크
 
-> Naming rule
+- Naming rule
 
    - 각 '컴포넌트' 는 postfix에 컴포넌트명을 꼭 써서 naming을 해야함.(ex. helloController..)
    - 각 '컴포넌트'를 호출하는 컴포넌트의 관점에서 naming을 할 것.(ex. Service의 naming은 Controller 관점..)
 
-> Value Object(≒ Domain Object, Model Object)
+- value Object(≒ Domain Object, Model Object)
 
    - naming은 딱 '명사'만
    - postfix가 없음
 
-> MongoDB(NoSQL)
+- MongoDB(NoSQL)
 
    - JSON DB
    - json을 Query로 파싱할 필요없이 그 자체로 담아버림(insert)
 
-> 전자정부프레임워크 Layered 특성
+- 전자정부프레임워크 Layered 특성
 
    - Service 컴포넌트 정도만 interface를 사용함(필수는 아니고 옵션)
 
-> RESTful API
+- RESTful API
 
    - method 종류
        - POST
@@ -200,7 +200,7 @@
        - 동작, 프로세싱에 집중(RESTful은 데이터처리에 집중)
            => 수년간 쌓인 데이터는 대체할 수 없다! <- 데이터의 중요성.
 
-> Stateless
+- Stateless
 
    - No session
        - 인증은 API Key 또는 Token 으로 대체
@@ -208,113 +208,113 @@
        - Http프로토콜의 Caching 기능을 적용
        - "Last-Modified", "e-태그"를 이용
 
-> ![캡처](https://user-images.githubusercontent.com/56371387/83342711-89dc6680-a32d-11ea-91f1-a948a584bb54.PNG)
+  ![캡처](https://user-images.githubusercontent.com/56371387/83342711-89dc6680-a32d-11ea-91f1-a948a584bb54.PNG)
 
-> ![캡처2](https://user-images.githubusercontent.com/56371387/83342738-e17ad200-a32d-11ea-9667-920330f6fbd3.PNG)
+  ![캡처2](https://user-images.githubusercontent.com/56371387/83342738-e17ad200-a32d-11ea-9667-920330f6fbd3.PNG)
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-<h1>3일차</h1>
+## 3일차
 
-   > lombok 라이브러리
-   
-         - Immutable 객체
-               - setter가 없는 bean
-               - '원본을 그대로 보존하겠다' 는 의미
-               - 복사본으로 데이터를 조작하기 때문에 rollback 이 가능하고 오류가 적어지며, 신뢰도가 높아짐
-   
-   > DTO(Data Transfer Object) Design pattern
-   
-         - Serializable 인터페이스 지원(MVC에선 쓸일이 거의 없음)
-         - Immutable 객체
-         
-   > JSON
-         
-         - Jackson 라이브러리(Springboot에 내장)
-         - JSON <-> Java 객체
-         
-   > Generic
-   
-         ※ 참고! List<User> : List of User 로 읽어짐.
-         
-   > 함수형 프로그래밍(≒ 선언적 프로그래밍)
-   
-         - 대표적으로 Java의 람다
-               - .filter : SQL에서 where와 비슷한 역할
-         - 객체프로그래밍은 데이터처리에 불리
-         - 요새 Java엔 함수형 프로그래밍이 부분적으로 도입됨
-               - ex. spark(빅데이터에서 )
-         - .Net(C#)은 이미 2006년도에 함수형 프로그래밍이 적용(역시 MS..)
-               - LINQ라는 기술.
-               - SQL이랑 매우 흡사
-         
-   > JDBC(JDK 1.2에서 부터 도입)
-   
-         - SpringJDBC, Mybatis 등이 JDBC를 wrapping 해서 효율성을 많이 높임.
-         - Connection pool
-               - 커넥션을 여러개 만들어두고 쓰고 반납(release)
-               - 요새 opensource에선 Connection pool 방식을 많이 씀
-         - DataSource
-               - 데이터베이스의 추상객체(Connection, Connection pool이 포함되어 있음)
-               - 즉, Connection은 DataSource로!
-               - hikariCP
-                     - Connection pool 오픈소스
-                     - Spring Boot 2.0 이후 라이브러리 내장(Default)
-               - 설정 방법
-                     - application.properties 에 구체적 내용 설정
-                     - @Configuration : 환경설정 component
-                     - @PropertySource("classpath : /application.properties")
-                     - @Bean(Java 지원) ≒ @Component(Spring 지원)
-         - Mybatis
-               - dataSource를 알아서 메모리에 올려서 씀
-               - @Repository, @Mapper
-                     - Dao interface에 사용
-               - <foreach> : where IN 조건에 많이 사용함
-         
-         ※ 참고! Sequence는 오라클에만 있다!
-         
-   > RESTful Test
-   
-         - JUnit
-               - Java에서 독립된 단위테스트를 지원해주는 프레임워크
-                     - 단위테스트 : 의도된대로 정확히 동작하는지 확인하는 절차
-                     ※ 참고! test폴더는 main폴더를 mirroring해서 만들어짐.
-               - @SpringBootTest
-                     - Test를 위해 Spring Container를 띄워줌
-               - Assertions 를 통해 단위테스트를 여러개 만들어주고 빌드할 때마다 실행되도록 하는것이 바람직.
-               - @Test
-                     - 테스트해볼 각 메소드 위에 표시
-               - MockMVC
-                     - Controller 테스트는 좀 다름. 그래서 postMan을 많이 사용함
-    
-   > Log4J(로그오픈소스) vs LogBack
-         
-         - Log4J(Spring Default)
-         - LogBack Framework(SpringBoot Default)
-         
-         ※ 참고! 요새는 코어가 많아서 '코어 하나당 쓰레드 하나' 로 병렬컴퓨팅을 함.(멀티쓰레딩x)
-               - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
-               - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
-               
-   > ![캡처3](https://user-images.githubusercontent.com/56371387/83343367-505b2980-a334-11ea-9b18-ad41bfffc285.PNG)
+- lombok 라이브러리
+
+     - Immutable 객체
+           - setter가 없는 bean
+           - '원본을 그대로 보존하겠다' 는 의미
+           - 복사본으로 데이터를 조작하기 때문에 rollback 이 가능하고 오류가 적어지며, 신뢰도가 높아짐
+
+- DTO(Data Transfer Object) Design pattern
+
+     - Serializable 인터페이스 지원(MVC에선 쓸일이 거의 없음)
+     - Immutable 객체
+
+- JSON
+
+     - Jackson 라이브러리(Springboot에 내장)
+     - JSON <-> Java 객체
+
+- Generic
+
+     ※ 참고! List<User> : List of User 로 읽어짐.
+
+- 함수형 프로그래밍(≒ 선언적 프로그래밍)
+
+     - 대표적으로 Java의 람다
+           - .filter : SQL에서 where와 비슷한 역할
+     - 객체프로그래밍은 데이터처리에 불리
+     - 요새 Java엔 함수형 프로그래밍이 부분적으로 도입됨
+           - ex. spark(빅데이터에서 )
+     - .Net(C#)은 이미 2006년도에 함수형 프로그래밍이 적용(역시 MS..)
+           - LINQ라는 기술.
+           - SQL이랑 매우 흡사
+
+- JDBC(JDK 1.2에서 부터 도입)
+
+     - SpringJDBC, Mybatis 등이 JDBC를 wrapping 해서 효율성을 많이 높임.
+     - Connection pool
+           - 커넥션을 여러개 만들어두고 쓰고 반납(release)
+           - 요새 opensource에선 Connection pool 방식을 많이 씀
+     - DataSource
+           - 데이터베이스의 추상객체(Connection, Connection pool이 포함되어 있음)
+           - 즉, Connection은 DataSource로!
+           - hikariCP
+                 - Connection pool 오픈소스
+                 - Spring Boot 2.0 이후 라이브러리 내장(Default)
+           - 설정 방법
+                 - application.properties 에 구체적 내용 설정
+                 - @Configuration : 환경설정 component
+                 - @PropertySource("classpath : /application.properties")
+                 - @Bean(Java 지원) ≒ @Component(Spring 지원)
+     - Mybatis
+           - dataSource를 알아서 메모리에 올려서 씀
+           - @Repository, @Mapper
+                 - Dao interface에 사용
+           - <foreach> : where IN 조건에 많이 사용함
+
+     ※ 참고! Sequence는 오라클에만 있다!
+
+- RESTful Test
+
+     - JUnit
+           - Java에서 독립된 단위테스트를 지원해주는 프레임워크
+                 - 단위테스트 : 의도된대로 정확히 동작하는지 확인하는 절차
+                 ※ 참고! test폴더는 main폴더를 mirroring해서 만들어짐.
+           - @SpringBootTest
+                 - Test를 위해 Spring Container를 띄워줌
+           - Assertions 를 통해 단위테스트를 여러개 만들어주고 빌드할 때마다 실행되도록 하는것이 바람직.
+           - @Test
+                 - 테스트해볼 각 메소드 위에 표시
+           - MockMVC
+                 - Controller 테스트는 좀 다름. 그래서 postMan을 많이 사용함
+
+- Log4J(로그오픈소스) vs LogBack
+
+     - Log4J(Spring Default)
+     - LogBack Framework(SpringBoot Default)
+
+     ※ 참고! 요새는 코어가 많아서 '코어 하나당 쓰레드 하나' 로 병렬컴퓨팅을 함.(멀티쓰레딩x)
+           - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
+           - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
+
+  ![캡처3](https://user-images.githubusercontent.com/56371387/83343367-505b2980-a334-11ea-9b18-ad41bfffc285.PNG)
                
 -----------------------------------------------------------------------------------------------------------------------------
       
-<h1>4일차</h1>
+## 4일차
 
-   > Exception
-   
-         - 기존 자바는 Checked Exception concept이라 try ~ catch가 필수
-         - spring, C# 은 unchecked Exception(런타임 Exception) 이라 try ~ catch가 필요없음
-               - Spring의 경우 Entry point에 몰아서 한꺼번에 처리함.
-         - @ControllerAdvice
-         - @ExceptionHandler
-         - @RestControllerAdvice  = @ControllerAdvice + @RestController
-         
-   > ![캡처4](https://user-images.githubusercontent.com/56371387/83343436-2ce4ae80-a335-11ea-9919-72b1305ab7bf.PNG)
+- Exception
 
-   > AOP
-   
-         - AspectJ(구버전 AOP) vs Spring AOP
-               - AspectJ : 너무 근본적임(현실적x)
-               - Spring AOP : 현실적임
+     - 기존 자바는 Checked Exception concept이라 try ~ catch가 필수
+     - spring, C# 은 unchecked Exception(런타임 Exception) 이라 try ~ catch가 필요없음
+           - Spring의 경우 Entry point에 몰아서 한꺼번에 처리함.
+     - @ControllerAdvice
+     - @ExceptionHandler
+     - @RestControllerAdvice  = @ControllerAdvice + @RestController
+
+  ![캡처4](https://user-images.githubusercontent.com/56371387/83343436-2ce4ae80-a335-11ea-9919-72b1305ab7bf.PNG)
+
+- AOP
+
+     - AspectJ(구버전 AOP) vs Spring AOP
+           - AspectJ : 너무 근본적임(현실적x)
+           - Spring AOP : 현실적임
