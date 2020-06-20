@@ -132,7 +132,7 @@
            - 컴포넌트는 POJO이다.(@Autowired)
            - 종류
                - **@Component** : 아래 컴포넌트들의 상위 어노테이션
-               - **@RestController(@Controller의 하위)** : Controller의 return이 자동적으로 JSON으로 변형된다(응답헤더를 json)
+               - **@RestController(@Controller의 하위)** : Controller의 return이 자동적으로 JSON으로 변형된다 (응답헤더를 json 으로)
                - **@Service**
                - **@Repository**
 
@@ -218,35 +218,35 @@
 
 - lombok 라이브러리
 
-     - Immutable 객체
-           - setter가 없는 bean
-           - **원본을 그대로 보존하겠다** 는 의미
-           - 복사본으로 데이터를 조작하기 때문에 rollback 이 가능하고 오류가 적어지며, 신뢰도가 높아짐
+   - Immutable 객체
+       - setter가 없는 bean
+       - **원본을 그대로 보존하겠다** 는 의미
+       - 복사본으로 데이터를 조작하기 때문에 rollback 이 가능하고 오류가 적어지며, 신뢰도가 높아짐
 
 - DTO(Data Transfer Object) Design pattern
 
-     - Serializable 인터페이스 지원(MVC에선 쓸일이 거의 없음)
-     - Immutable 객체
+   - Serializable 인터페이스 지원(MVC에선 쓸일이 거의 없음)
+   - Immutable 객체
 
 - JSON
 
-     - Jackson 라이브러리(Springboot에 내장)
-     - JSON <-> Java 객체
+   - Jackson 라이브러리(Springboot에 내장)
+   - JSON <-> Java 객체
 
 - Generic
 
-     - **참고! `List<User>` : List of User 로 읽어짐.**
+   - **참고! `List<User>` : List of User 로 읽어짐.**
 
 - 함수형 프로그래밍(≒ 선언적 프로그래밍)
 
-     - 대표적으로 Java의 람다
-         - .filter : SQL에서 where와 비슷한 역할
-     - 객체프로그래밍은 데이터처리에 불리
-     - 요새 Java엔 함수형 프로그래밍이 부분적으로 도입됨
-         - ex. spark(빅데이터에서 )
-     - .Net(C#)은 이미 2006년도에 함수형 프로그래밍이 적용(역시 MS..)
-         - LINQ라는 기술.
-         - SQL이랑 매우 흡사
+   - 대표적으로 Java의 람다
+       - .filter : SQL에서 where와 비슷한 역할
+   - 객체프로그래밍은 데이터처리에 불리
+   - 요새 Java엔 함수형 프로그래밍이 부분적으로 도입됨
+       - ex. spark(빅데이터를 다룰때 사용하는 기술)
+   - .Net(C#)은 이미 2006년도에 함수형 프로그래밍이 적용(역시 MS..)
+       - LINQ라는 기술.
+       - SQL이랑 매우 흡사
 
 - JDBC(JDK 1.2에서 부터 도입)
 
@@ -268,33 +268,33 @@
      - Mybatis
          - dataSource를 알아서 메모리에 올려서 씀
          - @Repository, @Mapper
-               - Dao interface에 사용
-         - <foreach> : where IN 조건에 많이 사용함
+           - Dao interface에 사용
+         - `<foreach>` : where IN 조건에 많이 사용함
 
      - **참고!! Sequence는 오라클에만 있다!**
 
 - RESTful Test
 
-     - JUnit
-         - Java에서 독립된 단위테스트를 지원해주는 프레임워크
-             - 단위테스트 : 의도된대로 정확히 동작하는지 확인하는 절차
-             - **참고!! test폴더는 main폴더를 mirroring해서 만들어짐.**
-         - @SpringBootTest
-             - Test를 위해 Spring Container를 띄워줌
-         - Assertions 를 통해 단위테스트를 여러개 만들어주고 빌드할 때마다 실행되도록 하는것이 바람직.
-         - @Test
-             - 테스트해볼 각 메소드 위에 표시
-         - MockMVC
-             - Controller 테스트는 좀 다름. 그래서 postMan을 많이 사용함
+   - JUnit
+     - Java에서 독립된 단위테스트를 지원해주는 프레임워크
+       - 단위테스트 : 의도된대로 정확히 동작하는지 확인하는 절차
+       - **참고!! test폴더는 main폴더를 mirroring해서 만들어짐.**
+     - @SpringBootTest
+       - Test를 위해 Spring Container를 띄워줌
+     - Assertions 를 통해 단위테스트를 여러개 만들어주고 빌드할 때마다 실행되도록 하는것이 바람직.
+     - @Test
+       - 테스트해볼 각 메소드 위에 표시
+     - MockMVC
+       - Controller 테스트는 좀 다름. 그래서 postMan을 많이 사용함
 
 - Log4J(로그오픈소스) vs LogBack
 
-     - Log4J(Spring Default)
-     - LogBack Framework(SpringBoot Default)
+   - Log4J(Spring Default)
+   - LogBack Framework(SpringBoot Default)
 
-     - **참고! 요새는 코어가 많아서 '코어 하나당 쓰레드 하나' 로 병렬컴퓨팅을 함.(멀티쓰레딩x)**
-         - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
-         - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
+   - **참고! 요새는 코어가 많아서 '코어 하나당 쓰레드 하나' 로 병렬컴퓨팅을 함.(멀티쓰레딩x)**
+     - 멀티쓰레딩은 그자체로 오버헤드인 경우가 많음.
+     - 쓰레드 하나로 비동기방식을 사용함(요새 Best)
 
   ![캡처3](https://user-images.githubusercontent.com/56371387/83343367-505b2980-a334-11ea-9b18-ad41bfffc285.PNG)
                
