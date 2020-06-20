@@ -14,16 +14,16 @@
    - **로드 존슨** 이라는 사람이 **Spring** 이라는 것을 대략 선보이고 2003년 부터 이를 예찬하는 사람들이 오픈소스 개발에 참여하여 프레임워크로 발전
    - 온전히 **개발자**들을 위한 관점에서 지속 개발 중
    - Spring 의 핵심 : **분산컴포넌트**를 지원 => DI/IOC 를 통해
-       ※ 컴포넌트 : Spring 컨테이너가 첫 로딩될 때 함께 로딩되는 객체들(ex. Service, Controller, Repository 등..)
+      - 컴포넌트 : Spring 컨테이너가 첫 로딩될 때 함께 로딩되는 객체들(ex. Service, Controller, Repository 등..)
           
 - Spring Technology
    
-   - Spring Data : 표준화된 인터페이스로 다양한 DBMS를 다룰 수 있음.
-   - Spring Cloud : microservice 기반. **Netflix** 가 개발한 이 opensource를 tailering하여 제작.
-   - Spring Cloud Data Flow : **쿠버네티스** 처럼 Container 컨트롤을 가능케 하는 기능.
-   - Spring Batch : 보통 통신사, 카드사 등에서 사용. 시간순서대로 대량의 데이터를 처리하기 위함. 유통업에서도 매우 정교하게 사용.
-   - Spring Kafka : Queue 를 이용한 데이터처리
-   - Spring Boot
+   - **Spring Data** : 표준화된 인터페이스로 다양한 DBMS를 다룰 수 있음.
+   - **Spring Cloud** : microservice 기반. **Netflix** 가 개발한 이 opensource를 tailering하여 제작.
+   - **Spring Cloud Data Flow** : **쿠버네티스** 처럼 Container 컨트롤을 가능케 하는 기능.
+   - **Spring Batch** : 보통 통신사, 카드사 등에서 사용. 시간순서대로 대량의 데이터를 처리하기 위함. 유통업에서도 매우 정교하게 사용.
+   - **Spring Kafka** : Queue 를 이용한 데이터처리
+   - **Spring Boot**
        - Spring Project의 Best Practice 에 대한 환경설정들을 처음부터 제공해주고 기호에 따라 수정하는 것.
        - Spring Framework 를 위한 Wrapper 느낌.
        - '공통' 의 역할이 이로인해 상당히 많이 줄게 되었음.
@@ -63,15 +63,15 @@
      - 즉, DBMS와 어플리케이션 둘 다에서 데이터를 처리
      - hadoop은 설치만 80%(요새는 이를 cloud가 다 처리함)
        - 하둡은 계산방식으로 **맵리듀스**를 사용함
-       - ANSI SQL : **ANSI(미국표준협회)에서 지정한 표준 SQL 문법.** 모든 DBMS에 호환.
+       - **ANSI SQL** : **ANSI(미국표준협회)에서 지정한 표준 SQL 문법.** 모든 DBMS에 호환.
       
 - Spring Framework의 특징
    
    - 컨테이너 : 객체의 LifeCycle을 관리
-   - DI : Dependency를 자동으로 해줌(Inversion of Control 에 의해) <- 설정파일, 어노테이션 이용
+   - **DI** : Dependency를 자동으로 해줌(Inversion of Control 에 의해) <- 설정파일, 어노테이션 이용
        - 어노테이션 : 선언적 프로그래밍(ex. SQL) <- '내부로직은 알아서하고 결과물만 내놔!'
        - **어노테이션** 덕분에 환경설정이 거의 사라지고 설정과 개발의 경계가 허물어졌음
-   - AOP
+   - **AOP**
    - POJO(Plain Old Java Object)
        - 컴포넌트 기법 : 상속x, 컴포넌트 그자체.
        - 인터페이스를 구현하지 않음.
@@ -107,7 +107,7 @@
    - 프로젝트의 directory를 정해줌
      - maven 기반의 프로젝트들은 directory구조가 거의 비슷함.
    - xml 설정파일
-     - pom.xml : maven의 library를 등록하는 곳
+     - **pom.xml** : maven의 library를 등록하는 곳
      - xml때문에 maven 이 위기를 맞음 => gradle 탄생의 배경(maven과 기능은 거의 일치)
    - 라이브러리 설정
      - `<dependencies>` : `<dependency>`들을 품고있는 부모 태그
@@ -131,10 +131,10 @@
        - '컴포넌트'를 관리하기 위한 Container
            - 컴포넌트는 POJO이다.(@Autowired)
            - 종류
-               - @Component : 아래 컴포넌트들의 상위 어노테이션
-               - @RestController(@Controller의 하위) : Controller의 return이 자동적으로 JSON으로 변형된다(응답헤더를 json)
-               - @Service
-               - @Repository
+               - **@Component** : 아래 컴포넌트들의 상위 어노테이션
+               - **@RestController(@Controller의 하위)** : Controller의 return이 자동적으로 JSON으로 변형된다(응답헤더를 json)
+               - **@Service**
+               - **@Repository**
 
 - Spring5
 
@@ -180,8 +180,8 @@
        - DELETE
 
    - @PathVariable Type 변수명
-       - 'TYPE' 부분은 타입의 보장이 될 경우 알아서 캐스팅을 해줌
-           (ex. get으로 넘어오는 데이터는 무조건 String인데 int 로 type 을 지정해놓을 경우 알아서 casting함)
+     - 'TYPE' 부분은 타입의 보장이 될 경우 알아서 캐스팅을 해줌
+        - (ex. get으로 넘어오는 데이터는 무조건 String인데 int 로 type 을 지정해놓을 경우 알아서 casting함)
           - **주의!! 그 String이 숫자라는게 보장이 되어야함. 아닐경우 Error**
 
    - @GetMapping("teams/{teamId}/players/{playId}) <- 예시
